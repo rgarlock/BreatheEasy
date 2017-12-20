@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="b260abf2a5a046bd95b189f05e2b9f23" Name="Diagram1">
+        <EntityTypeShape EntityType="BreatheEasyModel.C__MigrationHistory" Width="1.5" PointX="0.5" PointY="9.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="BreatheEasyModel.AspNetRole" Width="1.5" PointX="0.5" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BreatheEasyModel.AspNetUserClaim" Width="1.5" PointX="2.25" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BreatheEasyModel.AspNetUserLogin" Width="1.5" PointX="0.5" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BreatheEasyModel.AspNetUser" Width="1.5" PointX="0.5" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BreatheEasyModel.Image" Width="1.5" PointX="6.125" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BreatheEasyModel.Plan" Width="1.5" PointX="4.375" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BreatheEasyModel.BadgeMilestone" Width="1.5" PointX="8.125" PointY="0.5" IsExpanded="true" />
+        <AssociationConnector Association="BreatheEasyModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="BreatheEasyModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="BreatheEasyModel.FK__BadgeMile__Image__60A75C0F" ManuallyRouted="false" />
+        <AssociationConnector Association="BreatheEasyModel.FK__BadgeMile__Image__619B8048" ManuallyRouted="false" />
+        <AssociationConnector Association="BreatheEasyModel.AspNetUserRoles" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="BreatheEasyModel.UserInfo" Width="1.5" PointX="2.5" PointY="0.5" />
+        <AssociationConnector Association="BreatheEasyModel.FK__UserInfo__UserID__09A971A2" />
+        <AssociationConnector Association="BreatheEasyModel.FK__UserInfo__PlanID__08B54D69" />
+        <EntityTypeShape EntityType="BreatheEasyModel.HealthFactMilestone" Width="1.5" PointX="6.75" PointY="3.375" />
+        <EntityTypeShape EntityType="BreatheEasyModel.UserMilestone" Width="1.5" PointX="4.625" PointY="5.375" />
+        <AssociationConnector Association="BreatheEasyModel.FK__UserMiles__UserI__123EB7A3" />
+        <EntityTypeShape EntityType="BreatheEasyModel.Craving" Width="1.5" PointX="4.375" PointY="2.625" />
+        <AssociationConnector Association="BreatheEasyModel.FK__Craving__UserID__1AD3FDA4" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

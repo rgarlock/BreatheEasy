@@ -1,0 +1,76 @@
+﻿@model IEnumerable<BreatheEasyApp.Models.ViewModels.HeathFactViewModel>
+
+<style>
+    
+    .HealthFactsdl {
+        
+
+
+    }
+
+
+     .HealthFactsdl dt, .HealthFactsdl dd {
+
+         display: block;
+         width: 100%;
+
+     }
+    .HealthFactsdl dt {
+        padding: 2em 1em 1.5em;
+        color: #3d3d3d;
+
+        font-weight: 900;
+        text-decoration: underline;
+        text-underline: double;
+    }
+
+    .HealthFactsdl dd {
+        padding: .5em;
+        border-bottom: 2px solid #3d3d3d;
+        border-spacing: 15px;
+    }
+
+    .FactPassed {
+        font-size: 110%;
+        background-color: #ffc000;
+        color: black;
+    }
+
+    .FactNotPassed {
+        background-color: darkgrey;
+        color: darkslategray;
+    }
+</style>
+
+<div>
+    <h4>HealthFactMilestone</h4>
+    <hr />
+    <dl class="HealthFactsdl">
+        @foreach (var item in Model)
+        {
+            var factPassedClass = item.IsPassed ? "FactPassed" : "FactNotPassed";
+
+            <dt class="@factPassedClass">
+                After
+                @if (item.DaysIn.Days > 0)
+                {
+                    @item.DaysIn.Days <text>Day(s)</text>
+                }
+                else if (item.DaysIn.Hours > 0)
+                {
+                    @item.DaysIn.Hours<text>Hour(s)</text>
+                }
+                else if (item.DaysIn.Minutes > 0)
+                {
+                    @item.DaysIn.Minutes<text>Minute(s)</text>
+                }
+            </dt>
+
+            <dd class="@factPassedClass">
+                @Html.DisplayFor(model => item.FactBody)
+            </dd> 
+        }
+        
+
+    </dl>
+</div>

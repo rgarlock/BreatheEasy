@@ -1,0 +1,41 @@
+﻿@model IEnumerable<BreatheEasyApp.Models.Image>
+
+<style>
+    .BadgeContainer
+    {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        align-items: stretch;
+      
+        
+    }
+
+    .Badge 
+    {
+        height: 100px;
+        width: 100px;
+    }
+    .WindowHeader {
+        text-align: center;
+        float: right;
+    }
+     
+</style>
+
+
+<h3 id="WindowHeader">Your Achivements</h3>
+
+<div class="BadgeContainer ">
+    
+    @foreach (var item in Model)
+    {
+        <div >
+            
+            <img class="Badge" src="@Url.Action("Index", "Images", new {id = item.ImageID})"/>
+
+        </div>
+    }
+
+</div>
+

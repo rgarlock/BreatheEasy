@@ -1,0 +1,284 @@
+﻿@using System.Runtime.InteropServices
+@model BreatheEasyApp.Models.ViewModels.DashboardViewModel
+
+
+@{
+    ViewBag.Title = "Dashboard";
+    
+}
+<style>
+    .DashboardSquare {
+        background-image: url(../Content/images/YellowCircleIcon.png);
+        background-size: contain;
+        background-repeat: no-repeat;
+        width: 20%;
+        height: 150px;
+        padding: 20px;
+        background-position: center;
+        text-align: center;
+        border-collapse: separate;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        color: #ffffff;
+        border-spacing: 15px;
+        text-shadow: 0 1px 0 #ccc, 
+                     0 2px 0 #c9c9c9,
+                     0 3px 0 #bbb,
+                     0 4px 0 #b9b9b9,
+                     0 5px 0 #aaa,
+                     0 6px 1px rgba(0,0,0,.1),
+                     0 0 5px rgba(0,0,0,.1),
+                     0 1px 3px rgba(0,0,0,.3),
+                     0 3px 5px rgba(0,0,0,.2),
+                     0 5px 10px rgba(0,0,0,.25),
+                     0 10px 10px rgba(0,0,0,.2),
+                     0 20px 20px rgba(0,0,0,.15);
+    }
+
+     
+   #NotSmoked {
+       font-size: 80px;
+   }
+
+    #tableSquare {
+       
+        border-collapse: separate;
+        border-spacing: 15px;
+        padding: 20px 0px;
+    }
+
+   table.Center
+   {
+       margin-left: auto;
+       margin-right: auto;
+       
+   }
+
+   #tablebutton 
+   {
+       padding: ;
+   }
+
+   td {
+       padding: 10px 0px;
+       align-items: center;
+   }
+
+   th {
+       text-align: center;
+   }
+   
+   #CurrentMilestone {
+       font-size: 80px;
+   }
+
+   #MilestoneHeader {
+       font-size: 16.5px;
+   }
+
+   #SavedHeader {
+       font-size: 20px;
+   }
+
+   #NotSmokedHeader {
+       font-size: 16.5px;
+   }
+
+    .Headers {
+        color: white;
+        text-shadow: 0 1px 0 #ccc,
+            0 2px 0 #c9c9c9,
+            0 3px 0 #bbb,
+            0 4px 0 #b9b9b9,
+            0 5px 0 #aaa,
+            0 6px 1px rgba(0,0,0,.1),
+            0 0 5px rgba(0,0,0,.1),
+            0 1px 3px rgba(0,0,0,.3),
+            0 3px 5px rgba(0,0,0,.2),
+            0 5px 10px rgba(0,0,0,.25),
+            0 10px 10px rgba(0,0,0,.2),
+            0 20px 20px rgba(0,0,0,.15);
+    }
+
+   #MoneySaved {
+       font-size: 40px;
+   }
+    .DashboardWindow {
+        position: fixed;
+        top: 7%;
+        left: 15%;
+        bottom: 7%;
+        right: 15%;
+        overflow: auto;
+        /*background: linear-gradient(rgba(255,255,255,0.8),rgba(255,255,255,0.8));*/
+        padding: 5% 15%;
+        display: none;
+        margin: 5%}
+
+    .gradient-pattern {
+        -webkit-box-sizing: content-box;
+        -moz-box-sizing: content-box;
+        box-sizing: content-box;
+        width: 320px;
+        height: 320px;
+        border: none;
+        font: normal 100%/normal Arial, Helvetica, sans-serif;
+        color: rgba(255,255,255,1);
+        -o-text-overflow: clip;
+        text-overflow: clip;
+        background: -webkit-linear-gradient(45deg, rgba(255,255,255,0.2) 25%, rgba(0,0,0,0) 25%, rgba(0,0,0,0) 50%, rgba(255,255,255,0.2) 50%, rgba(255,255,255,0.2) 75%, rgba(0,0,0,0) 75%, rgba(0,0,0,0) 0), -webkit-linear-gradient(-90deg, rgba(186,188,183,0.8) 0, rgba(81,84,75,0.8) 100%);
+        background: -moz-linear-gradient(45deg, rgba(255,255,255,0.2) 25%, rgba(0,0,0,0) 25%, rgba(0,0,0,0) 50%, rgba(255,255,255,0.2) 50%, rgba(255,255,255,0.2) 75%, rgba(0,0,0,0) 75%, rgba(0,0,0,0) 0), -moz-linear-gradient(180deg, rgba(186,188,183,0.8) 0, rgba(81,84,75,0.8) 100%);
+        background: linear-gradient(45deg, rgba(255,255,255,0.2) 25%, rgba(0,0,0,0) 25%, rgba(0,0,0,0) 50%, rgba(255,255,255,0.2) 50%, rgba(255,255,255,0.2) 75%, rgba(0,0,0,0) 75%, rgba(0,0,0,0) 0), linear-gradient(180deg, rgba(186,188,183,0.8) 0, rgba(81,84,75,0.8) 100%);
+        background-position: auto auto, 50% 50%;
+        -webkit-background-origin: padding-box;
+        background-origin: padding-box;
+        -webkit-background-clip: border-box;
+        background-clip: border-box;
+        -webkit-background-size: 50px 50px, auto auto;
+        background-size: 50px 50px, auto auto;
+    }
+
+        .btn {
+            border: none;
+            font-family: inherit;
+            font-size: inherit;
+            color: inherit;
+            background: none;
+            cursor: pointer;
+            padding: 25px 40px;
+            display: inline-block;
+            margin: 15px 30px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 700;
+            outline: none;
+            position: relative;
+            -webkit-transition: all 0.3s;
+            -moz-transition: all 0.3s;
+            transition: all 0.3s;
+        }
+
+    .btn-2 {
+        background: #FFD42C;
+        color: #fff;
+        box-shadow: 0 6px #ffbc00;
+        -webkit-transition: none;
+        -moz-transition: none;
+        transition: none;
+    }
+    
+    .btn-2g {
+        border-radius: 40px;
+    }
+
+    .btn-2g:hover {
+        box-shadow: 0 4px #ffcc00;
+        top: 2px;
+    }
+
+    .btn-2g:active {
+        box-shadow: 0 0 #ab3c3c;
+        top: 6px;
+    }
+
+</style>
+
+<h2 style="text-align: center; padding: 20px;">Dashboard</h2>
+
+<div style="padding: 20px 0px 40px 0px">
+    
+    
+    
+    
+    <table id="tableSquare" class="Center">
+        <tr>
+            <th style="display: block" id="MilestoneHeader" class="Headers">Smokes Allowed Today</th>
+            <th  id="SavedHeader" class="Headers">Money Saved</th>
+            <th id="NotSmokedHeader" class="Headers">Cigarettes Not Smoked</th>
+            <th>Your Goal</th>
+            <th>Daily Motivation</th>
+        </tr>
+        <tr style="padding: 20px 0px">
+            <td id="CurrentMilestone" class="DashboardSquare">@Html.Partial("ShowCurrentMilestone", Model.Plan)</td>
+            <td id="MoneySaved" class="DashboardSquare">$@Html.Partial("_MoneySavedPartial", Model.MoneySaved)</td>
+            <td id="NotSmoked"class="DashboardSquare">@Html.Partial("_CigsNotSmokedPartial", Model.CigsNotSmoked)</td>
+            <td class="DashboardSquare">@Html.Partial("_GoalPartial", Model.Goal)</td>
+            <td class="DashboardSquare"></td>
+        </tr>
+    </table>
+    
+    <table id="tablebutton" class="Center">
+        <tr>
+            <td @*class="DashboardButton"*@><button id="Badges" class =" btn btn-2 btn-2g">Your Achievements</button></td>
+            <td class="DashboardButton"><button id="HealthFacts" class =" btn btn-2 btn-2g" >Health Facts</button></td>
+            <td class="DashboardButton"><button id="CravingsButton" class =" btn btn-2 btn-2g">Cravings</button></td>
+        </tr>
+    </table>
+    
+    <div>
+        
+        @Html.Partial("GetApi", Model.QuoteResponse)
+
+    </div>
+    <div class="DashboardWindow gradient-pattern" id="BadgesDashboard">
+        @Html.Partial("_BadgesPartial", Model.Badges)
+    </div>
+    <div class="DashboardWindow gradient-pattern" id="CravingsDashboard">
+        @Html.Partial("_CravingsPartial", Model.Cravings)
+        <button id="CloseCravings">Close Window</button>
+
+    </div>
+    <div class="DashboardWindow gradient-pattern" id="HealthFactsWindow">
+        @Html.Partial("_HealthFactsPartial", Model.HealthFacts)
+    </div>
+
+</div>
+@section scripts
+{
+    <script>
+        $('#Badges').click(function() {
+            $('#BadgesDashboard').fadeIn()
+                .css({top:575,position:'absolute'})
+                .animate({top:275}, 400, function() {
+                    //callback
+                });
+        });
+
+        $('#BadgesDashboard').click(function() {
+            $('#BadgesDashboard').hide();
+        });
+
+        $('#HealthFacts').click(function() {
+            $('#HealthFactsWindow').fadeIn()
+                .css({top:575,position:'absolute'})
+                .animate({top:275}, 400, function() {
+                    //callback
+                });
+        });
+
+        $('#HealthFactsWindow').click(function() {
+            $('#HealthFactsWindow').hide();
+        });
+
+        $('#CravingsButton').click(function() {
+            $('#CravingsDashboard').slideDown("slow");
+        });
+
+        $('#CloseCravings').click(function() {
+            $('#CravingsDashboard').hide();
+        });
+
+        $('#MilestoneHeader').arctext({radius: 120
+        });
+
+        $('#SavedHeader').arctext({
+            radius: 120
+        });
+
+        $('#NotSmokedHeader').arctext({
+            radius: 120
+        });
+        
+    </script>
+  
+}
+

@@ -1,0 +1,88 @@
+﻿@using BreatheEasyApp.Models
+@model IEnumerable<BreatheEasyApp.Models.Craving>
+
+<style>
+    
+    .Intensity {
+        font-weight: bolder;
+        font-family: helvetica;
+    }
+
+    .Intensity_1 {
+        color: #008000;
+    }
+    .Intensity_2 {
+        color: #40A000
+    }
+    .Intensity_3 {
+        color: #80C000;
+    }
+    .Intensity_4 {
+        color: #c0e000
+    }
+    .Intensity_5 {
+        color: #ffff00
+    }
+    .Intensity_6 {
+        color: #e0c000
+    }
+    .Intensity_7 {
+        color: #d0a000
+    }
+    .Intensity_8 {
+        color: #c08000
+    }
+    .Intensity_9 {
+        color: #a04000;
+    }
+    .Intensity_10 {
+        color: #800000;
+    }
+
+</style>
+
+
+<h2>Your Cravings</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create", "Cravings")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Intensity)
+        </th>
+        <th>@Html.DisplayNameFor(model => model.DateTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Comment)
+        </th>
+
+        
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model) {
+        <tr>
+            <td class="Intensity_@item.Intensity Intensity">
+                @Html.DisplayFor(modelItem => item.Intensity)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.DateTime)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.Comment)
+            </td>
+
+     
+            <td>
+
+            
+                @Html.ActionLink("Delete", "Delete", "Cravings" ,new {id=item.ID }, null)
+            </td>
+        </tr>
+    }
+
+</table>
+
