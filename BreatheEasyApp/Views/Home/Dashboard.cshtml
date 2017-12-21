@@ -1,4 +1,5 @@
 ﻿@using System.Runtime.InteropServices
+@using BreatheEasyApp.HelperClasses
 @model BreatheEasyApp.Models.ViewModels.DashboardViewModel
 
 
@@ -12,7 +13,7 @@
         background-size: contain;
         background-repeat: no-repeat;
         width: 20%;
-        height: 150px;
+        height: 250px;
         padding: 20px;
         background-position: center;
         text-align: center;
@@ -72,15 +73,19 @@
    }
 
    #MilestoneHeader {
-       font-size: 16.5px;
+       font-size: 20.5px;
    }
 
    #SavedHeader {
-       font-size: 20px;
+       font-size: 25px;
    }
 
    #NotSmokedHeader {
-       font-size: 16.5px;
+       font-size: 20.5px;
+   }
+
+   #GoalHeader {
+       font-size: 20px;
    }
 
     .Headers {
@@ -100,9 +105,27 @@
     }
 
    #MoneySaved {
-       font-size: 40px;
+       font-size: 75px;
    }
-    .DashboardWindow {
+
+   #Goal
+   {
+       font-size: 30px;
+   }
+
+    .QuoteWindow {
+        padding: 5% 10%;
+        background: #aaaaaa;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        color: #3d3d3d;
+        /*position: static;
+        top: 7%;
+        left: 15%;
+        bottom: 7%;
+        right: 15%;*/
+    }
+   .DashboardWindow
+   {
         position: fixed;
         top: 7%;
         left: 15%;
@@ -112,7 +135,9 @@
         /*background: linear-gradient(rgba(255,255,255,0.8),rgba(255,255,255,0.8));*/
         padding: 5% 15%;
         display: none;
-        margin: 5%}
+        margin: 5%
+
+   }
 
     .gradient-pattern {
         -webkit-box-sizing: content-box;
@@ -182,7 +207,7 @@
 
 </style>
 
-<h2 style="text-align: center; padding: 20px;">Dashboard</h2>
+<h2 style="text-align: center; padding: 20px; font-size: 50px;" class="Headers">Dashboard</h2>
 
 <div style="padding: 20px 0px 40px 0px">
     
@@ -194,15 +219,15 @@
             <th style="display: block" id="MilestoneHeader" class="Headers">Smokes Allowed Today</th>
             <th  id="SavedHeader" class="Headers">Money Saved</th>
             <th id="NotSmokedHeader" class="Headers">Cigarettes Not Smoked</th>
-            <th>Your Goal</th>
-            <th>Daily Motivation</th>
+            <th id="GoalHeader" class="Headers">Money Left to Reach Goal</th>
+            
         </tr>
         <tr style="padding: 20px 0px">
             <td id="CurrentMilestone" class="DashboardSquare">@Html.Partial("ShowCurrentMilestone", Model.Plan)</td>
             <td id="MoneySaved" class="DashboardSquare">$@Html.Partial("_MoneySavedPartial", Model.MoneySaved)</td>
             <td id="NotSmoked"class="DashboardSquare">@Html.Partial("_CigsNotSmokedPartial", Model.CigsNotSmoked)</td>
-            <td class="DashboardSquare">@Html.Partial("_GoalPartial", Model.Goal)</td>
-            <td class="DashboardSquare"></td>
+            <td id="Goal" class="DashboardSquare">@Html.Partial("_GoalPartial", Model.Goal)</td>
+           
         </tr>
     </table>
     
@@ -216,7 +241,6 @@
     
     <div>
         
-        @Html.Partial("GetApi", Model.QuoteResponse)
 
     </div>
     <div class="DashboardWindow gradient-pattern" id="BadgesDashboard">
@@ -230,6 +254,11 @@
     <div class="DashboardWindow gradient-pattern" id="HealthFactsWindow">
         @Html.Partial("_HealthFactsPartial", Model.HealthFacts)
     </div>
+    
+    <div class="QuoteWindow">
+        
+        @Html.Partial("_GetApiPartial", Model.Quote)
+    </div>
 
 </div>
 @section scripts
@@ -238,7 +267,7 @@
         $('#Badges').click(function() {
             $('#BadgesDashboard').fadeIn()
                 .css({top:575,position:'absolute'})
-                .animate({top:275}, 400, function() {
+                .animate({top:350}, 400, function() {
                     //callback
                 });
         });
@@ -250,7 +279,7 @@
         $('#HealthFacts').click(function() {
             $('#HealthFactsWindow').fadeIn()
                 .css({top:575,position:'absolute'})
-                .animate({top:275}, 400, function() {
+                .animate({top:350}, 400, function() {
                     //callback
                 });
         });
@@ -267,17 +296,20 @@
             $('#CravingsDashboard').hide();
         });
 
-        $('#MilestoneHeader').arctext({radius: 120
+        $('#MilestoneHeader').arctext({radius: 150
         });
 
         $('#SavedHeader').arctext({
-            radius: 120
+            radius: 150
         });
 
         $('#NotSmokedHeader').arctext({
-            radius: 120
+            radius: 150
         });
-        
+
+        $('#GoalHeader').arctext({
+            radius: 150
+        });
     </script>
   
 }

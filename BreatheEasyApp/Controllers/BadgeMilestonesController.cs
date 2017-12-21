@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using BreatheEasyApp.HelperClasses;
 using BreatheEasyApp.Models;
 using BreatheEasyApp.Models.ViewModels;
 using RestSharp;
@@ -121,22 +122,8 @@ namespace BreatheEasyApp.Controllers
             return RedirectToAction("Index");
         }
 
-        public ActionResult GetApi()
-        {
-            var client = new RestClient("http://quotes.rest/qod.json");
-            var request = new RestRequest("/", Method.GET);
-
-            request.Parameters.Add(new Parameter { Name = "category", Value = "inspire", Type = ParameterType.QueryString });
-
-            var response = client.Execute<QuoteResponse>(request);
-            if (!response.IsSuccessful)
-            {
-                //Handle your errors
-            }
-            ViewBag.ResponseText = response.Content;
-            return View(response.Data);
-
-        }
+  
+        
 
         protected override void Dispose(bool disposing)
         {

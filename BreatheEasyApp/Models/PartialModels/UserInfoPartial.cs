@@ -69,7 +69,7 @@ namespace BreatheEasyApp.Models
 
             }
 
-            result *= PricePerPack;
+            result *= PricePerPack/20;
 
 
             return Decimal.Round(result, 2);

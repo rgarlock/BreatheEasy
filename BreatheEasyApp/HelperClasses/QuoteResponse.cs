@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Collections.Generic;
 
-namespace BreatheEasyApp.Models.ViewModels
+namespace BreatheEasyApp.HelperClasses
 {
     public class QuoteResponse
     {
@@ -27,8 +24,9 @@ namespace BreatheEasyApp.Models.ViewModels
         public string Quote { get; set; }
         //public int Length { get; set; }
         public string Author { get; set; }
-        public string PermaLink { get; set; }
-        public string Background { get; set; }
+        //public string Background { get; set; }
+        //public string PermaLink { get; set; }
+      
     
     }
 }

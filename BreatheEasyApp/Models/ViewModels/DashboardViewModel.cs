@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Dynamic;
 using System.Linq;
 using System.Web;
+using BreatheEasyApp.HelperClasses;
 
 namespace BreatheEasyApp.Models.ViewModels
 {
@@ -15,7 +16,7 @@ namespace BreatheEasyApp.Models.ViewModels
         public int CigsNotSmoked { get; set; }
         public GoalViewModel Goal { get; set; }
         public List<HeathFactViewModel> HealthFacts { get; set; }
-        public QuoteResponse QuoteResponse { get; set; }
+        public QuoteContent Quote { get; set; }
       
     }
 }

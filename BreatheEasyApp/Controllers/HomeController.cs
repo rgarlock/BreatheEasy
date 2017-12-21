@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using BreatheEasyApp.HelperClasses;
 using BreatheEasyApp.Models;
 using BreatheEasyApp.Models.ViewModels;
 using Microsoft.AspNet.Identity;
@@ -84,6 +85,7 @@ namespace BreatheEasyApp.Controllers
 
             Dashboardvm.HealthFacts = healthFacts.ToList();
 
+            Dashboardvm.Quote = QuoteApi.GetQod();
             
 
             return View(Dashboardvm);
